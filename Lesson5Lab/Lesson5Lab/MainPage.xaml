@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Lesson5Lab"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="Lesson5Lab.MainPage"
+             Padding="{x:Static local:AppConstants.PagePadding}">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--this is for making the button but full -->
+            <LayoutOptions x:Key="horzOptions"
+                           Alignment="Center"
+                           />
+
+            <LayoutOptions x:Key="vertOptions"
+                           Alignment="Center"
+                           Expands="True" />
+
+            <x:Double x:Key="borderWidth">5</x:Double>
+            
+
+            <Color x:Key="CoolGreen">#226622</Color>
+            <FontAttributes x:Key="BoldFont">Bold</FontAttributes>
+
+
+            <OnPlatform x:Key="textColor"
+                        x:TypeArguments="Color">
+                <On Platform="iOS" Value="Red" />
+                <On Platform="Android" Value="Blue" />
+                <On Platform="UWP" Value="#00A0A0" />
+            </OnPlatform>
+
+            <Color x:Key="white">white</Color>
+
+            <x:Double x:Key="fontSize">24</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+
+        <Button Text=" Hello World "
+                TextColor="{StaticResource CoolGreen}"
+                FontSize="{StaticResource fontSize}" 
+                FontAttributes="{StaticResource BoldFont}"/>
+
+        <Label Text=" Stuff and "
+                HorizontalOptions="{StaticResource horzOptions}"
+                TextColor="{StaticResource textColor}"
+                FontSize="{StaticResource fontSize}" />
+
+        <Label Text=" Thangs "
+                HorizontalOptions="{StaticResource horzOptions}"
+                TextColor="{StaticResource white}"
+                FontSize="{StaticResource fontSize}" 
+               BackgroundColor="{StaticResource CoolGreen}"/>
+
+
+         <Label Text="Hello, XAML!"
+               TextColor="{x:Static local:AppConstants.BackgroundColor}"
+               BackgroundColor="{x:Static local:AppConstants.ForegroundColor}"
+               Font="{x:Static local:AppConstants.TitleFont}"
+               HorizontalOptions="Center" />
+
+        <BoxView WidthRequest="{x:Static sys:Math.PI}"
+                 HeightRequest="{x:Static sys:Math.E}"
+                 Color="{x:Static local:AppConstants.ForegroundColor}"
+                 HorizontalOptions="Center"
+                 VerticalOptions="CenterAndExpand"
+                 Scale="100" />
+
+    </StackLayout>
+
+</ContentPage>
